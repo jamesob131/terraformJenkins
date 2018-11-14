@@ -5,12 +5,10 @@ variable "private_key_path" {}
 variable "compartment_ocid" {}
 variable "region" {}
 
+# Configure the Oracle Cloud Infrastructure provider to use Instance Principal based authentication
 provider "oci" {
-  tenancy_ocid     = "${var.tenancy_ocid}"
-  user_ocid        = "${var.user_ocid}"
-  fingerprint      = "${var.fingerprint}"
-  private_key_path = "${var.private_key_path}"
-  region           = "${var.region}"
+  auth             = "InstancePrincipal"
+  region           = "us-ashburn-1"
 }
 
 resource "oci_core_virtual_network" "VCN" {
