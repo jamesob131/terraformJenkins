@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = "<your-project-id>-tfstate"
+    bucket = "terraformJenkins-tfstate"
     auth = "InstancePrincipal"
   }
 }
