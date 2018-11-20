@@ -12,7 +12,9 @@ pipeline {
 
     stage('TF Plan') {
       steps {
+          
           sh 'terraform init'
+          sh '/var/lib/jenkins/workspace/getCreds.sh'
           sh 'terraform plan -out myplan'
       }      
     }
