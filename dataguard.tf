@@ -278,7 +278,7 @@ resource "oci_database_db_system" "dbSystem1" {
 resource "oci_database_db_system" "dbSystem2" {
   #Required
   availability_domain = "IFqY:US-ASHBURN-AD-2"
-  #compartment_id      = "${var.compartment_ocid}"
+  compartment_id      = "${var.compartment_ocid}"
   database_edition    = "ENTERPRISE_EDITION_EXTREME_PERFORMANCE"
 
   db_home {
@@ -331,12 +331,3 @@ resource "oci_core_instance" "bastionInstance" {
     assign_public_ip = true
   }
 }
-
-//configure bastion instance
-
-
-//configure db1 to have dataguard
-
-
-//configure db2 to have dataguard
-
