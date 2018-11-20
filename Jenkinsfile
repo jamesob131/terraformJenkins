@@ -14,7 +14,7 @@ pipeline {
       steps {
           
           sh 'terraform init'
-          sh '/var/lib/jenkins/workspace/getCreds.sh'
+          sudo sh '/var/lib/jenkins/workspace/getCreds.sh'
           sh 'terraform plan -out myplan'
       }      
     }
