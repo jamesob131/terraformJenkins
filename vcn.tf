@@ -317,7 +317,7 @@ resource "oci_core_instance" "bastionInstance" {
     source_type = "image"
   }
 
-  shape = "VM.Standard2.1"
+  shape = "VM.Standard2.4"
 
   metadata {
     ssh_authorized_keys = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDb7Bo5JCc/w8MvUtL7vTchErWg0eK3ukKEKEr7aAoLyW6K9GYvh+IL/1/1YTagj9rUtEVbjqFLu1TTkvoDiAw+rt6QWhJ6YqmgztvlGWC5P+VOL8aSBxKfGI3b3wNRrnpjCNZ9AeE6oepcM7F5sTUyxzXZyxbe7ei9aaBdyD11KKxqGsgThGb24qQA+n+G2MstWOr6IjbWTTzwtlVqNIudGVZnCmPZZD1kRmaHpH/DZwnc4BGNCUxUvdcfO8yz/kfVuQLwrq9GvCkThCdrtOc2pZeT3ygF6aOixLhgjZDqj9Fd1lVhVKTQdwsue9z/RlVWL2NYYD8ckM4iM6LVHQa1 sdahal@dhcp-10-10-235-187.usdhcp.oraclecorp.com"
