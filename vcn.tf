@@ -9,3 +9,4 @@ provider "oci" {
   auth = "InstancePrincipal"
   region = "us-ashburn-1"
 }
+//Added comment 
