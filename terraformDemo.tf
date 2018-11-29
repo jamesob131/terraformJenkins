@@ -253,6 +253,11 @@ resource "oci_core_instance" "dbSystem1" {
 
   display_name = "dbSystem1"
 
+  source_details {
+    source_id   = "ocid1.image.oc1.iad.aaaaaaaageeenzyuxgia726xur4ztaoxbxyjlxogdhreu3ngfj2gji3bayda"
+    source_type = "image"
+  }
+
   create_vnic_details {
     subnet_id        = "${oci_core_subnet.db1Subnet.id}"
     assign_public_ip = false
@@ -269,6 +274,11 @@ resource "oci_core_instance" "dbSystem2" {
   }
 
   display_name = "dbSystem2"
+
+  source_details {
+    source_id   = "ocid1.image.oc1.iad.aaaaaaaageeenzyuxgia726xur4ztaoxbxyjlxogdhreu3ngfj2gji3bayda"
+    source_type = "image"
+  }
 
   create_vnic_details {
     subnet_id        = "${oci_core_subnet.db2Subnet.id}"
