@@ -214,7 +214,7 @@ resource "oci_core_subnet" "webServerSubnet1" {
   cidr_block                 = "10.0.3.0/24"
   compartment_id             = "${var.compartment_ocid}"
   display_name               = "webServerSubnet1"
-  dns_label                  = "webServerSubnet1DNS"
+  dns_label                  = "web1DNS"
   vcn_id                     = "${oci_core_virtual_network.VCN.id}"
   prohibit_public_ip_on_vnic = false
   route_table_id             = "${oci_core_route_table.PublicSubnetRT.id}"
@@ -229,7 +229,7 @@ resource "oci_core_subnet" "webServerSubnet2" {
   cidr_block                 = "10.0.4.0/24"
   compartment_id             = "${var.compartment_ocid}"
   display_name               = "webServerSubnet2"
-  dns_label                  = "webServerSubnet2DNS"
+  dns_label                  = "web2DNS"
   vcn_id                     = "${oci_core_virtual_network.VCN.id}"
   prohibit_public_ip_on_vnic = false
   route_table_id             = "${oci_core_route_table.PublicSubnetRT.id}"
