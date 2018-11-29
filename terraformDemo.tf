@@ -364,7 +364,7 @@ resource "oci_core_instance" "webServer1" {
 }
 
 resource "oci_core_instance" "webServer2" {
-  availability_domain = "ToGS:US-ASHBURN-AD-1"
+  availability_domain = "ToGS:US-ASHBURN-AD-2"
   compartment_id      = "${var.compartment_ocid}"
 
   source_details {
