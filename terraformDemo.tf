@@ -209,21 +209,6 @@ resource "oci_core_subnet" "BastionSubnet" {
   ]
 }
 
-resource "oci_core_subnet" "webServerSubnet1" {
-  availability_domain        = "ToGS:US-ASHBURN-AD-1"
-  cidr_block                 = "10.0.3.0/24"
-  compartment_id             = "${var.compartment_ocid}"
-  display_name               = "webServerSubnet1"
-  dns_label                  = "web1DNS"
-  vcn_id                     = "${oci_core_virtual_network.VCN.id}"
-  prohibit_public_ip_on_vnic = false
-  route_table_id             = "${oci_core_route_table.PublicSubnetRT.id}"
-
-  security_list_ids = [
-    "${oci_core_security_list.BastionSecurityList.id}",
-  ]
-}
-
 resource "oci_core_subnet" "db1Subnet" {
   availability_domain        = "ToGS:US-ASHBURN-AD-1"
   cidr_block                 = "10.0.1.0/24"
@@ -321,29 +306,6 @@ resource "oci_core_instance" "bastionInstance" {
 
   create_vnic_details {
     subnet_id        = "${oci_core_subnet.BastionSubnet.id}"
-    assign_public_ip = true
-  }
-}
-
-resource "oci_core_instance" "webServer1" {
-  availability_domain = "ToGS:US-ASHBURN-AD-1"
-  compartment_id      = "${var.compartment_ocid}"
-
-  source_details {
-    source_id   = "ocid1.image.oc1.iad.aaaaaaaageeenzyuxgia726xur4ztaoxbxyjlxogdhreu3ngfj2gji3bayda"
-    source_type = "image"
-  }
-
-  shape = "VM.Standard2.4"
-
-  metadata {
-    ssh_authorized_keys = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDZgJClETAdRFuH4y/uRAgMLuLnn/QL07oZDBEEc9oxCdKCD9nH3GbKykQ+9RP9h29etzOfyDkRF6oB9Dh2ukzhEFcyBIkPVC1Lze1tVjtoXXms3fGpzrYPkq8UxDAwt+k66xuhptR9PSklJspyBEHYAClJN56t4zoRr/ZhJnafZmPQ41QfSWss8JGNiHlqRmlvRLgC/LwRY/q4E1ZE/VfR1RK5eDa6DZOu6UrjTf9fi3BIvoPcLgV7jPW/nFcOiGYSgJ/yq4Dpy8pcfs06DHqR43O4TlWXQ5Ysxr0K1VzbZwwX+Y0o64qQJDthZWbVAoV02oBHKbWzDVI8965HJMyr joboyle@Jamess-MacBook-Pro-2.local"
-  }
-
-  display_name = "webServer1"
-
-  create_vnic_details {
-    subnet_id        = "${oci_core_subnet.webServerSubnet1.id}"
     assign_public_ip = true
   }
 }
